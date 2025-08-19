@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unlock premium AI tools — limited-time perks</title>
+  <link rel="icon" type="image/png" href="https://uploads.onecompiler.io/43trd7mpd/43tw35e9d/logoo.png" />
+  <meta name="description" content="Quick 3-step access to exclusive AI perks. Complete the survey to unlock your reward. Limited-time promo." />
+  <style>
+    :root{
+      --bg1:#0a1424;--bg2:#0f2646;--card:#0f1d33;--accent:#36b3ff;--accent2:#7cf7d4;--text:#eaf2ff;--muted:#9db6d9;--warning:#ffd166;--ok:#7cf7d4;--danger:#ff6b6b;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{
+      font-family: Inter,system-ui,Segoe UI,Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 10% -10%, #1b2e52 0%, transparent 60%),
+                  radial-gradient(1000px 500px at 110% 10%, #133b63 0%, transparent 60%),
+                  linear-gradient(135deg,var(--bg1),var(--bg2));
+      overflow-x:hidden;
+    }
+    .wrap{min-height:100%;display:flex;flex-direction:column}
+    header{
+      display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.06);
+      background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);
+      position:sticky;top:0;backdrop-filter: blur(6px);z-index:50;
+    }
+    header img{height:40px;width:auto}
+    header .brand{font-weight:700;letter-spacing:.2px}
+    .hero{
+      display:grid;grid-template-columns:1.3fr .9fr;gap:22px;max-width:1180px;margin:24px auto;padding:0 16px;
+    }
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.06); border-radius:14px; box-shadow:0 20px 60px rgba(0,0,0,.35);
+    }
+    .hero-left{padding:24px}
+    .kicker{color:var(--accent2);font-weight:600;font-size:.9rem;letter-spacing:.4px;text-transform:uppercase}
+    h1{margin:.35rem 0 0;font-size:2rem;line-height:1.2}
+    .sub{color:var(--muted);margin:10px 0 18px}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+    .badge{
+      font-size:.8rem;border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.04)
+    }
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:14px 18px;border-radius:10px;text-decoration:none;font-weight:700;letter-spacing:.2px;
+      color:#02101e;background:linear-gradient(90deg,var(--accent),#00a8ff); box-shadow:0 10px 24px rgba(0,168,255,.25);
+    }
+    .btn.secondary{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.16)}
+    .trust{
+      margin-top:12px;font-size:.85rem;color:var(--muted);display:flex;gap:12px;align-items:center;flex-wrap:wrap
+    }
+    .hero-right{position:relative;overflow:hidden}
+    .hero-right .hd{
+      width:100%;height:100%;min-height:280px;border-radius:14px;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.02)
+    }
+    .vector{
+      position:absolute;inset:auto 12px 12px auto;background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px;font-size:.8rem;color:var(--muted);
+      backdrop-filter: blur(4px);
+    }
+    .grid{
+      max-width:1180px;margin:10px auto 30px;display:grid;grid-template-columns:1fr .68fr;gap:22px;padding:0 16px;
+    }
+    .panel{padding:18px}
+    .panel h2{margin:0 0 6px;font-size:1.2rem}
+    .mini{font-size:.9rem;color:var(--muted)}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+    .stat{
+      padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;background:rgba(255,255,255,.03)
+    }
+    .stat .t{font-size:.8rem;color:var(--muted)}
+    .stat .v{font-size:1.1rem;font-weight:700;margin-top:4px}
+    .chart{
+      margin-top:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px
+    }
+    .bars{display:flex;gap:8px;align-items:flex-end;height:120px}
+    .bars .bar{flex:1;background:linear-gradient(180deg,rgba(54,179,255,.9),rgba(54,179,255,.2));border-radius:6px 6px 2px 2px}
+    .bars .bar:nth-child(2){background:linear-gradient(180deg,rgba(124,247,212,.9),rgba(124,247,212,.2))}
+    .bars .bar:nth-child(3){background:linear-gradient(180deg,rgba(255,209,102,.9),rgba(255,209,102,.2))}
+    .bars .bar:nth-child(4){background:linear-gradient(180deg,rgba(255,107,107,.9),rgba(255,107,107,.2))}
+    .legend{display:flex;gap:10px;margin-top:8px;color:var(--muted);font-size:.85rem;flex-wrap:wrap}
+    .legend span{display:inline-flex;gap:6px;align-items:center}
+    .dot{width:10px;height:10px;border-radius:50%}
+    .dot.c1{background:#36b3ff}.dot.c2{background:#7cf7d4}.dot.c3{background:#ffd166}.dot.c4{background:#ff6b6b}
+    .survey{
+      margin-top:14px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.03);padding:14px
+    }
+    .progress{height:8px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden;margin-bottom:12px}
+    .progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--accent),#00a8ff)}
+    .q{font-weight:700;margin:6px 0 12px}
+    .opt{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .opt button{
+      padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+      color:var(--text);cursor:pointer;font-weight:600
+    }
+    .opt button:hover{border-color:rgba(255,255,255,.28)}
+    .result{display:none;margin-top:12px;padding:12px;border:1px dashed rgba(255,255,255,.18);border-radius:10px}
+    .result .score{color:var(--ok);font-weight:700}
+    footer{
+      margin:24px auto 40px;max-width:1180px;padding:0 16px;color:var(--muted);font-size:.85rem
+    }
+    /* Exit-intent modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);z-index:100}
+    .modal .box{width:min(520px,92vw);background:linear-gradient(180deg,rgba(12,24,44,.98),rgba(10,20,36,.98));border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px}
+    .modal h3{margin:0 0 8px}
+    .modal p{margin:0 0 12px;color:var(--muted)}
+    .modal .row{display:flex;gap:10px;flex-wrap:wrap}
+    .pill{font-size:.8rem;border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.04)}
+    .close{background:transparent;border:1px solid rgba(255,255,255,.16);color:var(--text);border-radius:10px;padding:10px 12px;cursor:pointer}
+    .go{background:linear-gradient(90deg,var(--accent),#00a8ff);border:none;color:#02101e;border-radius:10px;padding:10px 14px;cursor:pointer;font-weight:700}
+    /* Responsive */
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .opt{grid-template-columns:1fr}
+    }
+  </style>
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C7DN8GL699"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config','G-C7DN8GL699'); // Pageview
+  </script>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img src="logo.png" alt="Brand logo">
+    <div class="brand">Premium AI Perks</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-left card">
+      <div class="kicker">Limited‑time access</div>
+      <h1>Unlock premium AI tools in 3 quick steps</h1>
+      <p class="sub">Answer a short survey to qualify. Your selection determines which perk you receive. No purchase required.</p>
+
+      <div class="badges">
+        <div class="badge">Encrypted • SSL</div>
+        <div class="badge">Anonymous analytics</div>
+        <div class="badge">Tier‑1 ready</div>
+      </div>
+
+      <div class="cta-row">
+        <a id="ctaPrimary" class="btn" href="#" rel="nofollow noopener">Start 3‑step survey</a>
+        <a class="btn secondary" href="#faq">How it works</a>
+      </div>
+
+      <div class="trust">
+        <span>Transparency: this page is a promotional experience and is not affiliated with OpenAI.</span>
+      </div>
+    </div>
+
+    <div class="hero-right card">
+      <img class="hd" src="hero.jpg" alt="High‑definition hero visual" />
+      <div class="vector">
+        <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M2 30 C25 10, 45 10, 60 28 S95 35, 118 14" stroke="#36b3ff" stroke-width="2" fill="none" />
+          <circle cx="60" cy="28" r="3" fill="#7cf7d4"/>
+        </svg>
+        <div>Vector accent</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="panel card">
+      <h2>Live engagement snapshot</h2>
+      <div class="mini">Illustrative chart of recent interest by region (sample)</div>
+      <div class="chart">
+        <div class="bars" id="bars">
+          <div class="bar" style="height:68%"></div>
+          <div class="bar" style="height:88%"></div>
+          <div class="bar" style="height:54%"></div>
+          <div class="bar" style="height:72%"></div>
+        </div>
+        <div class="legend">
+          <span><span class="dot c1"></span> US</span>
+          <span><span class="dot c2"></span> UK</span>
+          <span><span class="dot c3"></span> CA</span>
+          <span><span class="dot c4"></span> AU</span>
+        </div>
+      </div>
+
+      <div class="survey" id="survey">
+        <div class="progress"><div id="prog"></div></div>
+        <div class="q" id="qtext">What do you want to use AI tools for?</div>
+        <div class="opt" id="opts"></div>
+        <div class="result" id="resultBox">
+          <div>Match score: <span class="score" id="score">0%</span></div>
+          <div style="margin-top:8px">Great fit. Tap continue to unlock your perk.</div>
+          <div class="cta-row" style="margin-top:10px">
+            <a id="ctaContinue" class="btn" href="#" rel="nofollow noopener">Continue</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="panel card">
+      <h2>Today’s allocation</h2>
+      <div class="mini">Spots refresh daily at 00:00 UTC</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="t">Estimated spots left</div>
+          <div class="v" id="spots">—</div>
+        </div>
+        <div class="stat">
+          <div class="t">Avg. completion time</div>
+          <div class="v">28s</div>
+        </div>
+        <div class="stat">
+          <div class="t">Real‑time visitors (session)</div>
+          <div class="v" id="rl">1</div>
+        </div>
+        <div class="stat">
+          <div class="t">Verification status</div>
+          <div class="v" style="color:var(--ok)">Passed ✓</div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px">
+        <div class="mini" id="faq"><strong>How it works:</strong> complete the survey → continue → you’ll be routed to a partner page that hosts the perk.</div>
+      </div>
+    </aside>
+  </section>
+
+  <footer>
+    © 2025 Premium AI Perks. For transparency: this is a promotional page. Analytics are anonymous and help us improve experience quality.
+  </footer>
+</div>
+
+<!-- Exit-intent modal -->
+<div class="modal" id="exitModal" aria-hidden="true">
+  <div class="box">
+    <h3>Wait — your access is almost ready</h3>
+    <p>Complete the 3‑step survey to unlock your perk. Spots are limited and may reset soon.</p>
+    <div class="row" style="margin-bottom:10px">
+      <span class="pill">Fast access</span>
+      <span class="pill">Tier‑1 optimized</span>
+      <span class="pill">Anonymous analytics</span>
+    </div>
+    <div class="row">
+      <button class="close" id="closeExit">Maybe later</button>
+      <button class="go" id="goExit">Start now</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ====== CONFIGURE YOUR LINKS (weights prioritize traffic to linkA) ======
+  const LINKS = [
+    { name:'Offer 1', url:'https://bit.ly/47yhtsJ', weight:70 }, // primary
+    { name:'Offer 2', url:'https://bit.ly/4mP353V', weight:20 },
+    { name:'Offer 3', url:'https://bit.ly/4n6bIHx', weight:10 }
+  ];
+  const GA_MEASUREMENT_ID = 'G-C7DN8GL699';
+
+  // ====== SIMPLE STATE ======
+  let step = 0;
+  const questions = [
+    { q:'What do you want to use AI tools for?', a:['Content creation','Coding help','Research','Business workflows'] },
+    { q:'Pick your experience level', a:['Beginner','Intermediate','Advanced'] },
+    { q:'How soon do you need access?', a:['Right now','This week','Just exploring'] }
+  ];
+  const answers = [];
+  const progEl = document.getElementById('prog');
+  const qtext = document.getElementById('qtext');
+  const opts = document.getElementById('opts');
+  const resultBox = document.getElementById('resultBox');
+  const scoreEl = document.getElementById('score');
+
+  // ====== UTM + REF CAPTURE ======
+  function getParams(){
+    const u = new URL(location.href);
+    const params = Object.fromEntries(u.searchParams.entries());
+    return params;
+  }
+  function captureAttribution(){
+    const p = getParams();
+    const ref = document.referrer || 'direct';
+    const at = {
+      utm_source: p.utm_source || '',
+      utm_medium: p.utm_medium || '',
+      utm_campaign: p.utm_campaign || '',
+      utm_content: p.utm_content || '',
+      fbclid: p.fbclid || '',
+      gclid: p.gclid || '',
+      referrer: ref,
+      ts: Date.now(),
+      session: sessionStorage.getItem('sid') || ( () => {
+        const s = Math.random().toString(36).slice(2);
+        sessionStorage.setItem('sid', s);
+        return s;
+      })()
+    };
+    sessionStorage.setItem('attr', JSON.stringify(at));
+    gtag('event','attribution_capture', { ...at });
+    return at;
+  }
+
+  // Append UTMs to outbound link
+  function withUtm(url){
+    try{
+      const at = JSON.parse(sessionStorage.getItem('attr')||'{}');
+      const u = new URL(url);
+      ['utm_source','utm_medium','utm_campaign','utm_content','fbclid','gclid'].forEach(k=>{
+        if(at[k]) u.searchParams.set(k, at[k]);
+      });
+      // also pass our ref + session for your own logs (bitly will keep params)
+      if(at.referrer) u.searchParams.set('ref', encodeURIComponent(at.referrer).slice(0,200));
+      if(at.session) u.searchParams.set('sid', at.session);
+      return u.toString();
+    }catch(e){ return url; }
+  }
+
+  // ====== WEIGHTED SELECTION WITH ROTATION FALLBACK ======
+  function pickLink(){
+    const total = LINKS.reduce((s,l)=>s+l.weight,0);
+    let r = Math.random()*total;
+    for(const l of LINKS){ if((r -= l.weight) <= 0) return l; }
+    return LINKS[0];
+  }
+  // If first attempt gets blocked by popup- or new-tab policies, we still replace location
+  function goOutbound(origin){
+    const chosen = pickLink();
+    const url = withUtm(chosen.url);
+    gtag('event','link_redirect', { label:chosen.name, url:chosen.url, origin });
+    // Try new tab on user gesture
+    const w = window.open(url,'_blank','noopener,noreferrer');
+    if(!w){ // fallback same-tab
+      location.href = url;
+    }
+  }
+
+  // ====== SURVEY FLOW ======
+  function renderStep(){
+    if(step < questions.length){
+      const cur = questions[step];
+      qtext.textContent = cur.q;
+      const pct = Math.round((step/questions.length)*100);
+      progEl.style.width = pct + '%';
+      opts.innerHTML = '';
+      resultBox.style.display = 'none';
+      cur.a.forEach(txt=>{
+        const b = document.createElement('button');
+        b.className='opt-btn';
+        b.textContent = txt;
+        b.onclick = () => {
+          answers[step] = txt;
+          gtag('event','survey_answer',{ step: step+1, answer: txt });
+          step++; renderStep();
+        };
+        opts.appendChild(b);
+      });
+    } else {
+      // done
+      qtext.textContent = 'Survey complete';
+      progEl.style.width = '100%';
+      opts.innerHTML = '';
+      const sc = 82 + Math.floor(Math.random()*13); // cosmetic
+      scoreEl.textContent = sc + '%';
+      resultBox.style.display = 'block';
+      gtag('event','survey_complete',{ a1:answers[0], a2:answers[1], a3:answers[2] });
+    }
+  }
+
+  // ====== DYNAMIC STATS ======
+  function initStats(){
+    const rl = document.getElementById('rl');
+    const spots = document.getElementById('spots');
+    // Lightweight, non-deceptive demo values
+    let base = 57 + Math.floor(Math.random()*28);
+    spots.textContent = base;
+    let n = 1 + Math.floor(Math.random()*3);
+    rl.textContent = n;
+    setInterval(()=>{
+      // fluctuate
+      const delta = (Math.random()>.6?1:-1) * (Math.random()>.7?2:1);
+      base = Math.max(8, base + delta);
+      spots.textContent = base;
+      n = Math.max(1, n + (Math.random()>.5?1:-1));
+      rl.textContent = n;
+    }, 3500);
+  }
+
+  // ====== EXIT INTENT ======
+  const exitModal = document.getElementById('exitModal');
+  let exitShown = false;
+  function showExit(){
+    if(exitShown) return;
+    exitShown = true;
+    exitModal.style.display = 'flex';
+    gtag('event','exit_intent_shown');
+  }
+  document.getElementById('closeExit').onclick = () => {
+    exitModal.style.display = 'none';
+    gtag('event','exit_intent_closed');
+  };
+  document.getElementById('goExit').onclick = () => {
+    exitModal.style.display = 'none';
+    gtag('event','exit_intent_go');
+    document.getElementById('ctaPrimary').click();
+  };
+  // Desktop exit intent
+  document.addEventListener('mouseout', e=>{
+    if(e.clientY <= 0){ showExit(); }
+  });
+  // Mobile: back/blur hint
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.visibilityState === 'hidden'){ showExit(); }
+  });
+
+  // ====== CTA HOOKS ======
+  document.getElementById('ctaPrimary').addEventListener('click', (e)=>{
+    e.preventDefault();
+    window.scrollTo({ top: document.getElementById('survey').getBoundingClientRect().top + window.scrollY - 60, behavior:'smooth' });
+    gtag('event','cta_click',{ id:'ctaPrimary' });
+  });
+  document.getElementById('ctaContinue').addEventListener('click', (e)=>{
+    e.preventDefault();
+    goOutbound('survey_continue');
+  });
+
+  // ====== INIT ======
+  (function init(){
+    captureAttribution();
+    renderStep();
+    initStats();
+    // Animate bars a bit
+    const bars = document.querySelectorAll('.bars .bar');
+    bars.forEach((b,i)=>{
+      const h = parseInt(b.style.height);
+      b.style.height = '4%';
+      setTimeout(()=>{ b.style.transition='height .9s ease'; b.style.height = h+'%'; }, 30*i+100);
+    });
+  })();
+</script>
+</body>
+</html>
